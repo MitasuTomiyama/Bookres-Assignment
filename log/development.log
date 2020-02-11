@@ -932,3 +932,78 @@ Processing by BooksController#index as
 Completed 200 OK in 72ms (Views: 52.6ms | ActiveRecord: 0.5ms)
 
 
+Started POST "/books" for 10.0.2.2 at 2020-02-11 11:41:48 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f5ZFokf2q96miZpJM1hlF6Cy7dplBdPibm/yDi//x9Plc8sHOU5lePYmcCv5WdlcRbOFq8UvqmOWa+lG4nDe3g==", "book"=>{"title"=>"", "body"=>""}, "commit"=>"Create Book"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/vagrant/Bookers/app/models/book.rb:4: syntax error, unexpected ':', expecting keyword_end
+	   length: { minimum: 1, maximum: 255}
+	         ^
+/vagrant/Bookers/app/models/book.rb:7: syntax error, unexpected ':', expecting keyword_end
+	   lengthl: { minimum: 1, maximum: 255}
+	          ^):
+  
+app/models/book.rb:4: syntax error, unexpected ':', expecting keyword_end
+app/models/book.rb:7: syntax error, unexpected ':', expecting keyword_end
+app/controllers/books_controller.rb:17:in `create'
+Started GET "/" for 10.0.2.2 at 2020-02-11 11:48:25 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#top as HTML
+  Rendering books/top.html.erb within layouts/application
+  Rendered books/top.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 136ms (Views: 130.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books" for 10.0.2.2 at 2020-02-11 11:48:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BooksController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/vagrant/Bookers/app/models/book.rb:4: syntax error, unexpected ':', expecting keyword_end
+	   length: { minimum: 1, maximum: 255}
+	         ^
+/vagrant/Bookers/app/models/book.rb:7: syntax error, unexpected ':', expecting keyword_end
+	   lengthl: { minimum: 1, maximum: 255}
+	          ^):
+  
+app/models/book.rb:4: syntax error, unexpected ':', expecting keyword_end
+app/models/book.rb:7: syntax error, unexpected ':', expecting keyword_end
+app/controllers/books_controller.rb:3:in `index'
+Started POST "/books" for 10.0.2.2 at 2020-02-11 12:20:08 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f5ZFokf2q96miZpJM1hlF6Cy7dplBdPibm/yDi//x9Plc8sHOU5lePYmcCv5WdlcRbOFq8UvqmOWa+lG4nDe3g==", "book"=>{"title"=>"", "body"=>""}, "commit"=>"Create Book"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:17
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:17
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"books", :id=>nil}, missing required keys: [:id]):
+    10: <p><%= f.submit 'Update Book' %></p>
+    11: 
+    12: <p>
+    13: <td><%= link_to "Show", book_path(@book) %></td>
+    14: <td><%= link_to "Back", books_path(@book) %></td>
+    15: </p>
+    16: 
+  
+app/views/books/edit.html.erb:13:in `block in _app_views_books_edit_html_erb___3571122107751021839_47210153542160'
+app/views/books/edit.html.erb:2:in `_app_views_books_edit_html_erb___3571122107751021839_47210153542160'
+app/controllers/books_controller.rb:20:in `create'
