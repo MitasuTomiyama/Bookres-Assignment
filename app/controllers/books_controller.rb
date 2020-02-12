@@ -13,10 +13,10 @@ class BooksController < ApplicationController
 	end
 
 	def create
-		book = Book.new(book_params)
-		if book.save
-			redirect_to books_path(@book)
-			flash[:notice] = "Book was successfully updated."
+		@book = Book.new(book_params)
+		if @book.save
+			redirect_to book_path(@book)
+			flash[:notice] = "Book was successfully created."
 		else
 			@book = book
 			@books = Book.all
